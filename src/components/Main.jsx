@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchContainer from '../containers/SearchContainer';
 
-const Main = ({ title }) => {
+const Main = () => {
   return (
     <div>
       <SearchContainer />

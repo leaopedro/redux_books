@@ -3,11 +3,9 @@ export const TRIGGER_SEARCH = 'TRIGGER_SEARCH';
 
 export function triggerSearch(query) {
   return (dispatch) => {
-    dispatch(requestPosts(subreddit));
-
-    axios.get(`https://www.reddit.com/r/${subreddit}.json`)
+    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}+`)
       .then((response) => {
-        dispatch(receivePosts(subreddit, response.data));
+        dispatch(receiveBooks(query, response.data));
       })
       .catch((error) => {
         console.log(error);
