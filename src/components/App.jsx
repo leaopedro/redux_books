@@ -1,13 +1,13 @@
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory } from 'react-router';
-import Home from './Home';
+import Main from './Main';
 import './../style/main.less';
 
 const App = ({ store }) => (
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Route path="/" component={Home} />
+      <Route path="/" component={Main} />
     </Router>
   </Provider>
 );
