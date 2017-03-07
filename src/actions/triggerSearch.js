@@ -2,16 +2,22 @@ import axios from 'axios';
 export const TRIGGER_SEARCH = 'TRIGGER_SEARCH';
 
 export function triggerSearch(query) {
-  return (dispatch) => {
-    axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40`)
-      .then((response) => {
-        dispatch(receiveBooks(response.data));
-      })
-      .catch((error) => {
-        console.log(error);
-        dispatch(receiveApiError(error.response));
-      });
-  };
+  if(!query || query === ''){
+    return (dispatch) => {
+      dispatch(receiveBooks({items: []}));
+    }
+  }else{
+    return (dispatch) => {
+      axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40`)
+        .then((response) => {
+          dispatch(receiveBooks(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+          dispatch(receiveApiError(error.response));
+        });
+    };
+  }
 }
 
 export const RECEIVE_BOOKS = 'RECEIVE_BOOKS';

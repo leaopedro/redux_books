@@ -3,7 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Pedro Leão">
-    <title>Teste RD</title>
+    <title>Teste ReDux</title>
 
     <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
@@ -15,9 +15,7 @@
   </head>
 
   <body>
-    <div id="app">
-      <div class="initial-loader"></div>
-    </div>
+    <div id="app"></div>
 
     <% for (var i = 0; i < htmlWebpackPlugin.files.js.length; i++) { %>
       <script src="<%= htmlWebpackPlugin.files.js[i] %>"></script>

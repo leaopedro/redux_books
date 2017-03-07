@@ -6,9 +6,7 @@ import './../style/main.less';
 
 const App = ({ store }) => (
   <Provider store={store}>
-    <Router history={browserHistory}>
-      <Route path="/" component={Main} />
-    </Router>
+    <Main />
   </Provider>
 );
 

@@ -8,7 +8,7 @@ const extractLESS = new ExtractTextPlugin('css/main.[contenthash].css');
 
 const prod = {
   output: {
-    filename: '/js/[name].[chunkhash].js',
+    filename: 'js/[name].[chunkhash].js',
     path: './release',
   },
   plugins: [
