@@ -1,42 +1,52 @@
 import React, { PropTypes } from 'react';
+import BookItem from './BookItem.jsx';
 import './style.less';
 
-class BookList extends React.Component {
+class Page extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
-  //
-  //   // this.onSubmit = this.onSubmit.bind(this);
-  // }
-  // onChangeSearchBox(e) {
-  //   console.log('onChangeSearchBox');
-  //   let text = e.target.value;
-  //   const newState = Object.assign({}, this.state, { query: text });
-  //   this.setState(newState);
-  // }
+  constructor(props) {
+    super(props);
+
+    this.onChangePage = this.onChangePage.bind(this);
+  }
+
+  onChangePage(e) {
+    console.log('onChangePage', e.target.key);
+  }
 
 
   render() {
+    let pageItems = [];
+    for(let i=1;i<=this.props.totalPages;i++){
+      pageItems.push(<div key={i} className="page-item" onClick={this.onChangePage}>{i}</div>);
+    }
     return (
       <div className="list-container">
-        {
-          (this.props.bookList)?
-            this.props.bookList.map((item) => {
-              return (
-                <div key={item.id} >{item.volumeInfo.title}</div>
-              )
-            })
-            :
-            ''
-        }
+        <div className="row container">
+          {
+            (this.props.bookList.length > 0)?
+              this.props.bookList.map((item) => {
+                return (
+                  <BookItem key={item.id} bookItem={item}> </BookItem>
+                );
+              })
+              :
+              ''
+          }
+        </div>
+        <div className="pages-container">
+          {pageItems}
+        </div>
       </div>
     );
   }
 }
 
-BookList.propTypes = {
-  bookList: PropTypes.array.isRequired
+Page.propTypes = {
+  bookList: PropTypes.array.isRequired,
+  totalPages: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
 };
 
 
-export default BookList;
+export default Page;

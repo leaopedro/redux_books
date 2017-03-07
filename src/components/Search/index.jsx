@@ -15,12 +15,10 @@ class Search extends React.Component {
   }
 
   onSubmit(e) {
-    console.log('onSubmit');
     this.props.onSearchRequest(this.state.query);
   }
 
   onChangeSearchBox(e) {
-    console.log('onChangeSearchBox');
     let text = e.target.value;
     const newState = Object.assign({}, this.state, { query: text });
     this.setState(newState);

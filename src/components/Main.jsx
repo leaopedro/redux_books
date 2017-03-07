@@ -1,12 +1,12 @@
 import React from 'react';
 import SearchContainer from '../containers/SearchContainer';
-import BookListContainer from '../containers/BookListContainer';
+import PaginationContainer from '../containers/PaginationContainer';
 
 const Main = () => {
   return (
     <div>
       <SearchContainer />
-      <BookListContainer />
+      <PaginationContainer />
     </div>
   );
 };
