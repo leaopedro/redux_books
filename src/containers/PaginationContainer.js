@@ -7,7 +7,7 @@ function mapStateToProps(state) {
   return {
     bookList: items,
     totalPages: state.pagination.totalPages,
-    currentPage: state.pagination.currentPage
+    currentPage: state.pagination.currentPage,
   };
 }
 

@@ -24,7 +24,7 @@ class Page extends React.Component {
     }
     return (
       <div className="list-container">
-        <div className="row container">
+        <div className="row">
           {
             (this.props.bookList.length > 0)?
               this.props.bookList.map((item) => {
@@ -48,7 +48,7 @@ Page.propTypes = {
   onPageChoice: PropTypes.func.isRequired,
   bookList: PropTypes.array.isRequired,
   totalPages: PropTypes.number.isRequired,
-  currentPage: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired
 };
 
 

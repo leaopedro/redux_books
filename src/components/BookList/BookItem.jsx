@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import './bookItem.less';
+import FavoriteContainer from '../../containers/FavoriteContainer'
 
 class BookItem extends React.Component {
 
@@ -16,7 +17,6 @@ class BookItem extends React.Component {
   //   this.setState(newState);
   // }
 
-
   render() {
     return (
       <div className="book-item col-xs-12 col-sm-4 col-md-3">
@@ -29,6 +29,10 @@ class BookItem extends React.Component {
               {this.props.bookItem.volumeInfo.title}
             </h1>
           </div>
+          <div className="options row">
+            <FavoriteContainer bookId={this.props.bookItem.id} />
+          </div>
+
         </div>
       </div>
     );
@@ -39,7 +43,5 @@ BookItem.propTypes = {
   bookItem: PropTypes.object.isRequired
   // bookList: PropTypes.array.isRequired
 };
-
-
 
 export default BookItem;
