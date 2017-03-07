@@ -1,11 +1,19 @@
 .pages-container{
   text-align: center;
+  margin: 20px auto;
   .page-item{
     display: inline-block;
     cursor: pointer;
     padding: 5px;
     background-color: #ffffff;
-
+    border: 1px solid #e4e4e4;
+    &:hover{
+      background-color: #e4e4e4;
+    }
+    &.active{
+      background-color: #e4e4e4;
+      cursor: default;
+    }
     &:first-child{
       border-bottom-left-radius: 5px;
       border-top-left-radius: 5px;

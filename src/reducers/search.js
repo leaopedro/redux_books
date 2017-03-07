@@ -21,11 +21,7 @@ export default function search(state = {
   bookList: [],
   updatedAt: null,
   isLoading: false,
-  pagination:{
-    currentPage: 1,
-    totalItems: 0,
-    totalPages: 0,
-  }
+
 }, action) {
   switch (action.type) {
     case TRIGGER_SEARCH:
@@ -37,12 +33,7 @@ export default function search(state = {
       return Object.assign({}, state, {
         bookList: action.bookList,
         isLoading: false,
-        updatedAt: action.receivedAt,
-        pagination: Object.assign({}, state.pagination, {
-          totalItems: action.totalItems,
-          currentPage: 1,
-          totalPages: action.totalItems/20,
-        })
+        updatedAt: action.receivedAt
       });
     default:
       return state;

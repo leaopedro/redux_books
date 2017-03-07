@@ -11,14 +11,16 @@ class Page extends React.Component {
   }
 
   onChangePage(e) {
-    console.log('onChangePage', e.target.key);
+    let pageNum = Number(e.target.dataset.value);
+    if(pageNum !== this.props.currentPage){
+      this.props.onPageChoice(pageNum);
+    }
   }
-
 
   render() {
     let pageItems = [];
     for(let i=1;i<=this.props.totalPages;i++){
-      pageItems.push(<div key={i} className="page-item" onClick={this.onChangePage}>{i}</div>);
+      pageItems.push(<span key={i} data-value={i} className={(i==this.props.currentPage)?"page-item active":"page-item"} onClick={this.onChangePage}>{i}</span>);
     }
     return (
       <div className="list-container">
@@ -43,6 +45,7 @@ class Page extends React.Component {
 }
 
 Page.propTypes = {
+  onPageChoice: PropTypes.func.isRequired,
   bookList: PropTypes.array.isRequired,
   totalPages: PropTypes.number.isRequired,
   currentPage: PropTypes.number.isRequired,

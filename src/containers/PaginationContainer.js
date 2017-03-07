@@ -1,18 +1,22 @@
 import { connect } from 'react-redux';
 import Page from '../components/BookList';
+import { changePage } from '../actions';
 
 function mapStateToProps(state) {
-  let items = state.search.bookList.slice((state.search.pagination.currentPage*20-20),(state.search.pagination.currentPage*20));
-  console.log(items);
+  let items = state.search.bookList.slice((state.pagination.currentPage*12-12), state.pagination.currentPage*12 );
   return {
     bookList: items,
-    totalPages: state.search.pagination.totalPages,
-    currentPage: state.search.pagination.currentPage
+    totalPages: state.pagination.totalPages,
+    currentPage: state.pagination.currentPage
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    onPageChoice: (page) => {
+      dispatch(changePage(page));
+    }
+  };
 }
 
 const PaginationContainer = connect(
