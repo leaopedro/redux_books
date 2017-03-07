@@ -1,33 +1,28 @@
 import React, { PropTypes } from 'react';
 import './style.less';
 
-class Options extends React.Component {
+class Search extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      form: {
-        addSubreddit: '',
-      },
+      query: '',
     };
 
     // NO SENSE, BUT NEEDED FOR EVERY CLASS METHOD CALLED IN RENDER!
     this.onSubmit = this.onSubmit.bind(this);
     this.onChangeSearchBox = this.onChangeSearchBox.bind(this);
-
   }
 
   onSubmit(e) {
-    e.preventDefault();
-
-    this.props.onAddSubreddit(this.state.form.addSubreddit);
+    console.log('onSubmit');
+    this.props.onSearchRequest(this.state.query);
   }
 
   onChangeSearchBox(e) {
-    let newForm = Object.assign({}, this.state.form);
-    newForm[e.target.name] = e.target.value;
-
-    const newState = Object.assign({}, this.state, { form: newForm });
+    console.log('onChangeSearchBox');
+    let text = e.target.value;
+    const newState = Object.assign({}, this.state, { query: text });
     this.setState(newState);
   }
 
@@ -35,17 +30,21 @@ class Options extends React.Component {
   render() {
     return (
       <div className="search-container">
-        <input type="text" onChange={this.onChangeSearchBox} />
-        <button className="search-btn" onClick={this.onSubmit}> Buscar</button>
+        <div className="field-container">
+          <input className="search-field" type="text" onChange={this.onChangeSearchBox} />
+          <button className="btn default-btn search-btn" onClick={this.onSubmit}>
+            <i className="fa fa-search"> </i>
+          </button>
+        </div>
       </div>
     );
   }
 
 }
 
-Options.propTypes = {
-  onSearch: PropTypes.func.isRequired
+Search.propTypes = {
+  onSearchRequest: PropTypes.func.isRequired
 };
 
 
-export default Options;
+export default Search;

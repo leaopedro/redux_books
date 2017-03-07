@@ -1,15 +1,16 @@
 import { connect } from 'react-redux';
-import Options from '../components/Options';
+import Search from '../components/Search';
 import { triggerSearch } from '../actions';
 
-
 function mapStateToProps(state) {
-  return {};
+  return {
+
+  };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    onSearch: (query) => {
+    onSearchRequest: (query) => {
       dispatch(triggerSearch(query));
     }
   }
@@ -18,6 +19,6 @@ function mapDispatchToProps(dispatch) {
 const SearchContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Options);
+)(Search);
 
 export default SearchContainer

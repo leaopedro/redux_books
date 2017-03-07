@@ -1,24 +1,19 @@
 /*
-
-{
-  addSubredditForm
-  subreddits,
-  selectedSubreddit,
-  postsBySubreddit
-}
+  {
+    addSubredditForm
+    subreddits,
+    selectedSubreddit,
+    postsBySubreddit
+  }
 */
 
 import { combineReducers } from 'redux';
-import postsBySubreddit from './postsBySubreddit';
-import selectedSubreddit from './selectedSubreddit';
-import subreddits from './subreddits';
 import errors from './errors';
+import search from './search';
 
 
 const rootReducer = combineReducers({
-  postsBySubreddit,
-  selectedSubreddit,
-  subreddits,
+  search,
   errors,
 });
 

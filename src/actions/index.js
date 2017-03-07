@@ -1,5 +1,2 @@
-export * from './subreddits';
 
-export * from './selectedSubreddit';
-
-export * from './postsBySubreddit';
+export * from './triggerSearch.js';

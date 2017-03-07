@@ -1,6 +1,13 @@
 <!DOCTYPE>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Pedro Leão">
+    <title>Teste RD</title>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <script src="https://use.fontawesome.com/23486a1154.js"> </script>
 
     <% for (var i = 0; i < htmlWebpackPlugin.files.css.length; i++) { %>
       <link rel="stylesheet" type="text/css" media="screen" href="<%= htmlWebpackPlugin.files.css[i] %>" />

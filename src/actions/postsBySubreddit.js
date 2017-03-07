@@ -27,13 +27,6 @@ export function receivePosts(subreddit, json) {
   };
 }
 
-export const RECEIVE_API_ERROR = 'RECEIVE_API_ERROR';
-export function receiveApiError(errorMessage) {
-  return {
-    type: RECEIVE_API_ERROR,
-    errorMessage,
-  };
-}
 
 // este actionCreator retorna uma função
 export function fetchPosts(subreddit) {
