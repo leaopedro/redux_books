@@ -29,6 +29,7 @@ Sistema de busca de livros por palavra chave utilizando a API do [Google Books](
 ```bash
 > npm run build
 ```
+O projeto fica disponível na pasta 'release/', basta abrir o arquivo 'index.html' em um browser.
 
 ##### Testes:
 ```bash
