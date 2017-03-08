@@ -32,4 +32,4 @@ Sistema de busca de livros por palavra chave utilizando a API do [Google Books](
 
 ##### Testes:
 ```bash
-npm run test
+>npm run test
