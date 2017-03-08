@@ -9,10 +9,10 @@ class FavoriteButton extends React.Component {
     this.onClickFavoriteButton = this.onClickFavoriteButton.bind(this);
   }
 
-  onClickFavoriteButton(){
+  onClickFavoriteButton(e){
+    e.stopPropagation();
     this.props.onClickFavorite(this.props.bookId);
   }
-
   render() {
     return (
 

@@ -1,5 +1,5 @@
 /*
-{
+BOOKITEM:{
     "kind": "books#volume",
     "id": "oIuPl6RZHjQC",
     "etag": "QnBeVdyc3eU",
@@ -89,26 +89,75 @@ class BookInfoModal extends React.Component {
         super(props);
 
         this.hideModal = this.hideModal.bind(this);
+        this.generateRandomNum = this.generateRandomNum.bind(this);
     }
 
     hideModal() {
         this.props.onCloseRequest();
     };
 
+    generateRandomNum(max){
+      return Math.floor(Math.random() * (max + 1));
+    }
     render() {
-        return (
+      let ratingStars = [];
+      let tags = [];
+      let colors = ['#F44336','#673AB7','#2196F3','#43A047','#EF6C00'];
+
+      if(this.props.bookData){
+        if(this.props.bookData.volumeInfo.averageRating){
+          for(let j=0;j<Math.floor(Number(this.props.bookData.volumeInfo.averageRating));j++){
+            ratingStars.push(<i key={j} className="fa fa-star"> </i>)
+          }
+        }else{
+          ratingStars.push(<p key={'no-ratings'}>Nenhuma avaliação até agora.</p>)
+        }
+
+        if(this.props.bookData.volumeInfo.categories){
+          for(let j=0;j<this.props.bookData.volumeInfo.categories.length;j++){
+            const n = this.generateRandomNum(colors.length);
+            const color = colors[n];
+            tags.push(<span className="tag" key={j} style={{backgroundColor:color}}>{this.props.bookData.volumeInfo.categories[j]}</span>);
+            colors.splice(n,1);
+          }
+        }
+      }
+      return (
             <Modal isOpen={this.props.isActive} onRequestHide={this.hideModal}>
                 <ModalHeader>
                     <ModalClose onClick={this.hideModal}/>
                     <ModalTitle>{(this.props.bookData)?this.props.bookData.volumeInfo.title:''}</ModalTitle>
+                    {(this.props.bookData)?
+                      this.props.bookData.volumeInfo.authors.map((author,i)=>{
+                        if(i===this.props.bookData.volumeInfo.authors.length-1){
+                          return <p key={i}>{author}</p>
+                        }
+                        return <p key={i}>{author+', '}</p>
+                      })
+                    :
+                      ''
+                    }
+
                 </ModalHeader>
                 <ModalBody>
-                    <img src={
-                    (this.props.bookData && this.props.bookData.volumeInfo.imageLinks)?this.props.bookData.volumeInfo.imageLinks.smallThumbnail
-                    :
-                    'https://www.riobeauty.co.uk/images/product_image_not_found_thumb.gif'
-                    }/>
-                    <p>{(this.props.bookData)?this.props.bookData.volumeInfo.description:''}</p>
+                    <div className="row">
+                        <div className="col-xs-12 text-center col-sm-4">
+                            <img src={
+                              (this.props.bookData && this.props.bookData.volumeInfo.imageLinks)?this.props.bookData.volumeInfo.imageLinks.smallThumbnail
+                                :
+                                'https://www.riobeauty.co.uk/images/product_image_not_found_thumb.gif'
+                            }/>
+                            <div className="rating">
+                              {ratingStars}
+                            </div>
+                            <div className="tags">
+                              {tags}
+                            </div>
+                        </div>
+                        <div className="col-xs-12 col-sm-8">
+                            <p>{(this.props.bookData)?this.props.bookData.volumeInfo.description:''}</p>
+                        </div>
+                    </div>
                 </ModalBody>
                 <ModalFooter>
                     <button className='btn btn-default' onClick={this.hideModal}>
@@ -124,4 +173,5 @@ class BookInfoModal extends React.Component {
 BookInfoModal.propTypes = {
 
 };
+
 export default BookInfoModal;

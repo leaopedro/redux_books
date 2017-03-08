@@ -9,11 +9,9 @@ class BookItem extends React.Component {
 
       this.onClickCard = this.onClickCard.bind(this);
    }
-
    onClickCard(e) {
      this.props.showBookInfo(this.props.bookItem);
    }
-
   render() {
     return (
       <div className="book-item col-xs-12 col-sm-4 col-md-3">
