@@ -3,7 +3,6 @@ import Search from '../components/Search';
 import { triggerSearch } from '../actions';
 
 function mapStateToProps(state) {
-    console.log('STATE',state);
     return {
     isLoading: state.loader,
   };

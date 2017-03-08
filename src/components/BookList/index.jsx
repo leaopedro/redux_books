@@ -29,7 +29,7 @@ class Page extends React.Component {
             (this.props.bookList.length > 0)?
               this.props.bookList.map((item) => {
                 return (
-                  <BookItem key={item.id} showBookInfo={this.props.showBookInfo} bookItem={item}> </BookItem>
+                  <BookItem key={item.id} currentQuery={this.props.currentQuery} showBookInfo={this.props.showBookInfo} bookItem={item}> </BookItem>
                 );
               })
               :

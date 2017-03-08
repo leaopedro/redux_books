@@ -38,7 +38,6 @@ class Search extends React.Component {
 
 
   render() {
-      console.log(this.props.isLoading);
       return (
       <div className="search-container">
         <div className="field-container">

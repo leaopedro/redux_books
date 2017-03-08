@@ -8,6 +8,7 @@ function mapStateToProps(state) {
     bookList: items,
     totalPages: state.pagination.totalPages,
     currentPage: state.pagination.currentPage,
+    currentQuery: state.search.query
   };
 }
 

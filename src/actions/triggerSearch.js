@@ -8,9 +8,11 @@ export function triggerSearch(query) {
     return (dispatch) => {
       dispatch(receiveBooks({items: []}));
     }
+
   }else{
     return (dispatch) => {
       dispatch(startLoader());
+      dispatch(requestSearch(query));
       axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40`)
         .then((response) => {
           dispatch(stopLoader());
@@ -23,6 +25,14 @@ export function triggerSearch(query) {
         });
     };
   }
+}
+
+export const REQUEST_SEARCH = 'REQUEST_SEARCH';
+export function requestSearch(query) {
+  return {
+    type: REQUEST_SEARCH,
+    query
+  };
 }
 
 export const RECEIVE_BOOKS = 'RECEIVE_BOOKS';
