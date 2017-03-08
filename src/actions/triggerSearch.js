@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { startLoader, stopLoader } from './loader.js'
+
 export const TRIGGER_SEARCH = 'TRIGGER_SEARCH';
 
 export function triggerSearch(query) {
@@ -8,12 +10,15 @@ export function triggerSearch(query) {
     }
   }else{
     return (dispatch) => {
+      dispatch(startLoader());
       axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40`)
         .then((response) => {
+          dispatch(stopLoader());
           dispatch(receiveBooks(response.data));
         })
         .catch((error) => {
           console.log(error);
+          dispatch(stopLoader());
           dispatch(receiveApiError(error.response));
         });
     };

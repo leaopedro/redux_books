@@ -19,7 +19,7 @@ function mapDispatchToProps(dispatch) {
 
 const FavoriteContainer = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(FavoriteButton);
 
 export default FavoriteContainer

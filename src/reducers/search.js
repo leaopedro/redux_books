@@ -26,8 +26,7 @@ export default function search(state = {
   switch (action.type) {
     case TRIGGER_SEARCH:
       return Object.assign({}, state, {
-        query: action.query,
-        isLoading: true,
+        query: action.query
       });
     case RECEIVE_BOOKS:
       return Object.assign({}, state, {

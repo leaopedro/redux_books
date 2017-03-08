@@ -4,23 +4,20 @@ import FavoriteContainer from '../../containers/FavoriteContainer'
 
 class BookItem extends React.Component {
 
-  // constructor(props) {
-  //   super(props);
-  //
-  //   // this.onSubmit = this.onSubmit.bind(this);
-  // }
+   constructor(props) {
+     super(props);
 
-  // onChangeSearchBox(e) {
-  //   console.log('onChangeSearchBox');
-  //   let text = e.target.value;
-  //   const newState = Object.assign({}, this.state, { query: text });
-  //   this.setState(newState);
-  // }
+      this.onClickCard = this.onClickCard.bind(this);
+   }
+
+   onClickCard(e) {
+     this.props.showBookInfo(this.props.bookItem);
+   }
 
   render() {
     return (
       <div className="book-item col-xs-12 col-sm-4 col-md-3">
-        <div className="card row">
+        <div className="card row" onClick={this.onClickCard}>
           <div className="book-thumb col-xs-5 col-sm-12">
             <img src={(this.props.bookItem.volumeInfo.imageLinks)?this.props.bookItem.volumeInfo.imageLinks.smallThumbnail:'https://www.riobeauty.co.uk/images/product_image_not_found_thumb.gif'} />
           </div>
@@ -40,7 +37,8 @@ class BookItem extends React.Component {
 }
 
 BookItem.propTypes = {
-  bookItem: PropTypes.object.isRequired
+  bookItem: PropTypes.object.isRequired,
+  showBookInfo: PropTypes.func.isRequired
   // bookList: PropTypes.array.isRequired
 };
 

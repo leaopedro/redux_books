@@ -7,6 +7,7 @@ import './../style/main.less';
 const App = ({ store }) => (
   <Provider store={store}>
     <Main />
+
   </Provider>
 );
 

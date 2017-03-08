@@ -16,8 +16,11 @@ class Search extends React.Component {
   }
 
   onSubmit(e) {
-    this.props.onSearchRequest(this.state.query);
+      if(!this.props.isLoading){
+          this.props.onSearchRequest(this.state.query);
+      }
   }
+
 
   onChangeSearchBox(e) {
     let text = e.target.value;
@@ -27,18 +30,26 @@ class Search extends React.Component {
   onKeyPress(e) {
     var code = e.keyCode || e.which;
     if(code == 13) { //Enter keycode
-      this.props.onSearchRequest(this.state.query);
+        if(!this.props.isLoading){
+            this.props.onSearchRequest(this.state.query);
+        }
     }
   }
 
 
   render() {
-    return (
+      console.log(this.props.isLoading);
+      return (
       <div className="search-container">
         <div className="field-container">
           <input className="search-field" type="text" onChange={this.onChangeSearchBox} onKeyPress={this.onKeyPress} />
           <button className="btn default-btn search-btn" onClick={this.onSubmit}>
-            <i className="fa fa-search"> </i>
+              {
+              (this.props.isLoading)?
+                  <i className="fa fa-spin fa-spinner"> </i>
+                  :
+                  <i className="fa fa-search"> </i>
+              }
           </button>
         </div>
       </div>

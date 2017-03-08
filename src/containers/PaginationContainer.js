@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Page from '../components/BookList';
-import { changePage } from '../actions';
+import { changePage, showBookInfo } from '../actions';
 
 function mapStateToProps(state) {
   let items = state.search.bookList.slice((state.pagination.currentPage*12-12), state.pagination.currentPage*12 );
@@ -15,13 +15,16 @@ function mapDispatchToProps(dispatch) {
   return {
     onPageChoice: (page) => {
       dispatch(changePage(page));
+    },
+    showBookInfo: (bookItem) =>{
+        dispatch(showBookInfo(bookItem));
     }
   };
 }
 
 const PaginationContainer = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(Page);
 
 export default PaginationContainer

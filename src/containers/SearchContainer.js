@@ -3,8 +3,9 @@ import Search from '../components/Search';
 import { triggerSearch } from '../actions';
 
 function mapStateToProps(state) {
-  return {
-
+    console.log('STATE',state);
+    return {
+    isLoading: state.loader,
   };
 }
 
@@ -18,7 +19,7 @@ function mapDispatchToProps(dispatch) {
 
 const SearchContainer = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(Search);
 
 export default SearchContainer
