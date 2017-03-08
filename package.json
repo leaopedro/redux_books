@@ -8,6 +8,11 @@
     "dev": "webpack-dev-server --config webpack.dev.js --open",
     "test": "jest"
   },
+  "env": {
+    "test": {
+      "presets": ["react", "es2015"]
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/leaopedro/rd_test.git"

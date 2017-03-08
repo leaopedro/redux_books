@@ -1,35 +1,65 @@
-// import { triggerSearch, TRIGGER_SEARCH, RECEIVE_BOOKS } from '../actions/triggerSearch'
-// import configureMockStore from 'redux-mock-store'
-// import thunk from 'redux-thunk'
-// import nock from 'nock'
-// import expect from 'expect'
-//
-// const middlewares = [ thunk ]
-// const mockStore = configureMockStore(middlewares)
-//
-// describe('actions', () => {
-//   afterEach(() => {
-//     nock.cleanAll()
-//   })
-//
-//   it('makes a request to the search API', () => {
-//     const query = 'book';
-//     nock(`https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=40`)
-//       .get('/todos')
-//       .reply(200, { body: { todos: ['do something'] }});
-//
-//     const expectedAction = {
-//       type: RECEIVE_BOOKS,
-//         body: {
-//           todos: ['do something']
-//         }
-//     }
-//     ;
-//     const store = mockStore({ todos: [] })
-//
-//     return store.dispatch(triggerSearch(query))
-//       .then(() => { // return of async actions
-//         expect(store.getActions()).toEqual(expectedActions)
-//       })
-//   })
-// })
+
+import { toggleFavorite,showBookInfo,closeBookInfo,changePage,
+  startLoader,stopLoader,
+  TOGGLE_FAVORITE, SHOW_BOOK_INFO, CLOSE_BOOK_INFO, CHANGE_PAGE,
+  START_LOADER,STOP_LOADER } from '../actions';
+
+describe('TOGGLE_FAVORITE_ACTION', () => {
+  it('should create an action to toggle a book s favorite control', () => {
+    const bookId = '123456';
+    const expectedAction = {
+      type: TOGGLE_FAVORITE,
+      bookId
+    };
+    expect(toggleFavorite(bookId)).toEqual(expectedAction)
+  });
+});
+
+describe('BOOK_INFO_ACTION', () => {
+  it('should create an action to show a book s info modal', () => {
+    const bookItem ={
+      info:{a:'',b:{}}
+    } ;
+    const expectedAction = {
+      type: SHOW_BOOK_INFO,
+      bookItem
+    };
+    expect(showBookInfo(bookItem)).toEqual(expectedAction)
+  });
+
+  it('should create an action to close the book s info modal', () => {
+    const expectedAction = {
+      type: CLOSE_BOOK_INFO
+    };
+    expect(closeBookInfo()).toEqual(expectedAction)
+  });
+});
+
+describe('CHANGE_PAGE_ACTION', () => {
+  it('should create an action to change the page', () => {
+    const pageNumber = 2;
+    const expectedAction = {
+      type: CHANGE_PAGE,
+      pageNumber
+    };
+    expect(changePage(pageNumber)).toEqual(expectedAction)
+  });
+});
+
+describe('LOADER_ACTION', () => {
+  it('should create an action to start the loader', () => {
+    const expectedAction = {
+      type: START_LOADER
+    };
+    expect(startLoader()).toEqual(expectedAction)
+  });
+
+  it('should create an action to start the loader', () => {
+    const expectedAction = {
+      type: STOP_LOADER
+    };
+    expect(stopLoader()).toEqual(expectedAction)
+  });
+});
+
+

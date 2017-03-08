@@ -155,7 +155,7 @@ class BookInfoModal extends React.Component {
                             </div>
                         </div>
                         <div className="col-xs-12 col-sm-8">
-                            <p>{(this.props.bookData)?this.props.bookData.volumeInfo.description:''}</p>
+                            <p>{(this.props.bookData && this.props.bookData.volumeInfo.description)?this.props.bookData.volumeInfo.description:'Sinopse não disponível.'}</p>
                         </div>
                     </div>
                 </ModalBody>

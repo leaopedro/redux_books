@@ -1,18 +1,3 @@
-/*
- STATE:
- errors: '',
- search: {
-   query: '',
-   bookList: [],
-   updatedAt: null,
-   isLoading: false,
-   pagination: {
-    currentPage: 1,
-    totalItems: 0,
-    totalPages: 0,
-   }
- }
- */
 
 import { TRIGGER_SEARCH, RECEIVE_BOOKS } from '../actions';
 

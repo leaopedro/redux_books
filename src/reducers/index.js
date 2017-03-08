@@ -1,11 +1,26 @@
 /*
-  {
-    addSubredditForm
-    subreddits,
-    selectedSubreddit,
-    postsBySubreddit
-  }
-*/
+ STATE SHAPE:
+ errors: '',
+ search: {
+   query: '',
+   bookList: [],
+   updatedAt: null,
+   isLoading: false,
+ },
+ pagination: {
+   currentPage: 1,
+   totalItems: 0,
+   totalPages: 0,
+ },
+ loader: false,
+ favorite: {
+  list:[]
+ },
+ bookInfo:{
+   isActive: false,
+   bookData : null
+ }
+ */
 
 import { combineReducers } from 'redux';
 import errors from './errors';
