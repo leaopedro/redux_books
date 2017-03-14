@@ -7,6 +7,8 @@ export * from './toggleFavorite.js';
 
 export * from './loader.js';
 
+export * from './login.js';
+
 export * from './showBookInfo.js';
 
 export * from './closeBookInfo.js';

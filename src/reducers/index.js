@@ -28,6 +28,7 @@ import search from './search';
 import pagination from './pagination';
 import favorite from './favorite';
 import loader from './loader';
+import login from './login';
 import bookInfo from './bookInfo';
 
 
@@ -37,7 +38,8 @@ const rootReducer = combineReducers({
   pagination,
   favorite,
   loader,
-    bookInfo
+  login,
+  bookInfo
 });
 
 export default rootReducer;
