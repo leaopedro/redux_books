@@ -1,36 +1,37 @@
-# [Buscador de Livros](https://leaopedro.github.io/redux_books/release/)
-Sistema de busca de livros por palavra chave utilizando a API do [Google Books](https://developers.google.com/books/) .
+# Book Search App
 
-#### Features:
-- Busca
-- Paginação
-- Marcar como 'favorito'
-- Visualizar mais informações
-- Destaque da palavra-chave nos resultados
+A simple keyword‑based book search application powered by the [Google Books API](https://developers.google.com/books/).
 
+## Features
+- Keyword search  
+- Result pagination  
+- Mark books as “favorites”  
+- View detailed book information  
+- Highlight search terms in results  
 
-### Tecnologias utilizadas:
-- [ReactJS](https://facebook.github.io/react/)
-- [Redux](http://redux.js.org/)
-- [Webpack](https://webpack.github.io/)
+## Technologies
+- [ReactJS](https://facebook.github.io/react/)  
+- [Redux](http://redux.js.org/)  
+- [Webpack](https://webpack.js.org/)  
 
-### Arquitetura:
-![Aquitetura básica do projeto](https://pedroleao.me/portfolio/dev/books/redux_arch.png)
+## Architecture
+![Basic project architecture](https://pedroleao.me/portfolio/dev/books/redux_arch.png)
 
+## Scripts
 
-### Scripts:
-
-##### Desenvolvimento:
+### Development
 ```bash
-> npm run dev
+npm run dev
 ```
 
-##### Release:
+### Production Build
 ```bash
-> npm run build
+npm run build
 ```
-O projeto fica disponível na pasta 'release/', basta abrir o arquivo 'index.html' em um browser.
+The production files will be placed in the `release/` folder—just open `release/index.html` in your browser.
 
-##### Testes:
+### Testing
 ```bash
->npm run test
+npm run test
+```
+
